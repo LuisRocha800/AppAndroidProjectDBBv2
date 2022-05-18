@@ -4,7 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/ERP/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/dos_activity.xml" value="0.2" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/login_administrador_activity.xml" value="0.2" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/login_cliente_activity.xml" value="0.15625" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/login_empleado_activity.xml" value="0.15625" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/tres_activity.xml" value="0.2" />
       </map>
     </option>
   </component>
