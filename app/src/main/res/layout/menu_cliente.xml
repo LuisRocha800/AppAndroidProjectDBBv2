@@ -163,9 +163,10 @@
         app:layout_constraintVertical_bias="0.318" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnInfoCliente"
         android:layout_width="179dp"
         android:layout_height="45dp"
+        app:cornerRadius="40dp"
         android:text="Actualizar Informacion"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -187,4 +188,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.392"
         app:srcCompat="@drawable/icons8_administrator_male_40px" />
+
+    <Button
+        android:id="@+id/btnMostCompras"
+        android:layout_width="245dp"
+        android:layout_height="57dp"
+        android:text="Ver historial de compras"
+        app:cornerRadius="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
+
+    <ListView
+
+        android:id="@+id/verUltimaCompra"
+        android:layout_width="322dp"
+        android:layout_height="124dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.695" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compra mas reciente"
+        android:textColor="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,9 @@ package com.basesdedatos.erp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,9 +18,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MenuCliente extends AppCompatActivity {
 
@@ -28,10 +39,17 @@ public class MenuCliente extends AppCompatActivity {
     public TextView mostDireccionCliente;
     public TextView mostTelefonoCliente;
 
+    private Button btnMostCompras;
+    private Button btnInfoCliente;
+
+    private ListView verUltimaCompra;
+    private ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_cliente);
+        AndroidNetworking.initialize(getApplicationContext());
 
         mostNombreCliente = findViewById(R.id.mostNombreCliente);
         mostApellidoCliente = findViewById(R.id.mostApellidoCliente);
@@ -40,11 +58,26 @@ public class MenuCliente extends AppCompatActivity {
         mostDireccionCliente = findViewById(R.id.mostDireccionCliente);
         mostTelefonoCliente = findViewById(R.id.mostTelefonoCliente);
 
+        verUltimaCompra = findViewById(R.id.verUltimaCompra);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+
+        btnMostCompras = findViewById(R.id.btnMostCompras);
+        btnInfoCliente = findViewById(R.id.btnInfoCliente);
+
+
         String datoRFC = getIntent().getStringExtra("datoRFCCliente");
         mostRFCCliente.setText(datoRFC);
 
         mostrarDatos();
+        mostrarUltCompra();
 
+        btnMostCompras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                totalCompras();
+            }
+        });
         }
 
     public void mostrarDatos(){
@@ -84,7 +117,58 @@ public class MenuCliente extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
+
     }
+
+    public void mostrarUltCompra(){
+        verUltimaCompra.setAdapter(adapter);
+
+        String RFC = mostRFCCliente.getText().toString();
+
+
+        Map<String,String> datos = new HashMap<>();
+        datos.put("rfc", RFC);
+        JSONObject jsonData = new JSONObject(datos);
+        AndroidNetworking.post(Constantes.URL_CLIENTE_ULTIMA_COMPRA)
+                .addJSONObjectBody(jsonData)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            String respuesta = response.getString("respuesta");
+                            if (respuesta.equals("200")){
+                                JSONArray arrayProductos = response.getJSONArray("data");
+                                for(int i=0;i<arrayProductos.length();i++){
+                                    JSONObject jsonProducto = arrayProductos.getJSONObject(i);
+                                    String desc = "DESCRIPCION: " + jsonProducto.getString("descripcion");
+                                    String fecha = "FECHA: " + jsonProducto.getString("fecha");
+                                    String monto = "MONTO: " + jsonProducto.getString("monto");
+
+
+                                    String dataString = desc + "\n" + fecha + " \n" + monto;
+                                    adapter.add(dataString);
+                                }
+                            }else{
+                                Toast.makeText(MenuCliente.this, "Aun no tiene ninguna compra",Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(MenuCliente.this, "Error: "+e.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+                        Toast.makeText(MenuCliente.this, "Error: "+anError.getErrorDetail(),Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
+
+    public void totalCompras(){
+        Intent intent  = new Intent(this,TotalComprasActivity.class);
+        intent.putExtra("RFCCliente",mostRFCCliente.getText().toString());
+        startActivity(intent);
+    }
+}
 
 
