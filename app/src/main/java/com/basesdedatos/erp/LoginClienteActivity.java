@@ -29,8 +29,6 @@ public class LoginClienteActivity extends AppCompatActivity {
     private TextView viewPass;
     private Button btnOkCliente;
 
-    String pass;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +56,7 @@ public class LoginClienteActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JSONObject object = new JSONObject();
         String RFC = txtUsuarioCliente.getText().toString().trim();
-        String url = Constantes.URL_CLIENTE_X_ID+"?rfc="+RFC;
+        String url = Constantes.URL_USUARIOCLIENTE_ID_WEB_SERVICE+"?rfc="+RFC;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, object, new Response.Listener<JSONObject>() {
 
             @Override
@@ -66,7 +64,7 @@ public class LoginClienteActivity extends AppCompatActivity {
                 try {
                     JSONObject datos = response.getJSONObject("data");
                     String rfc = datos.getString("rfc");
-                    String password = datos.getString("contraseña");
+                    String password = datos.getString("contrasenia");
 
                     viewUser.setText(rfc);
                     viewPass.setText(password);
@@ -90,7 +88,7 @@ public class LoginClienteActivity extends AppCompatActivity {
         String uss = viewUser.getText().toString();
         String pss = viewPass.getText().toString();
 
-        if(verficarcampos()) {
+        if(verificarcampos()) {
 
                 if (user.equals(uss) && password.equals(pss)) {
                     enviarUsuarioCliente();
@@ -103,7 +101,7 @@ public class LoginClienteActivity extends AppCompatActivity {
             }
     }
 
-    private boolean verficarcampos(){
+    private boolean verificarcampos(){
        return !txtUsuarioCliente.getText().toString().trim().isEmpty()&&
               !txtPasswordCliente.getText().toString().trim().isEmpty();
     }

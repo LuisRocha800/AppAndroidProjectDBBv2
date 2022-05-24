@@ -129,7 +129,7 @@ public class MenuCliente extends AppCompatActivity {
         Map<String,String> datos = new HashMap<>();
         datos.put("rfc", RFC);
         JSONObject jsonData = new JSONObject(datos);
-        AndroidNetworking.post(Constantes.URL_CLIENTE_ULTIMA_COMPRA)
+        AndroidNetworking.post(Constantes.URL_CLIENTE_X_ID)
                 .addJSONObjectBody(jsonData)
                 .setPriority(Priority.MEDIUM)
                 .build()
