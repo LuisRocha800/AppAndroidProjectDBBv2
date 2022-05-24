@@ -80,27 +80,39 @@
 
     <TextView
         android:id="@+id/mostDireccionEmpleado"
-        android:layout_width="189dp"
-        android:layout_height="19dp"
+        android:layout_width="282dp"
+        android:layout_height="17dp"
         android:text="DIRECCION"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.266" />
 
     <TextView
         android:id="@+id/mostTelefonoEmpleado"
         android:layout_width="195dp"
         android:layout_height="18dp"
-        android:text="TELEFONO"
+        android:text="CUMPLEAÑOS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.317" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="37dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392"
+        app:srcCompat="@drawable/icons8_administrator_male_40px" />
 
     <TextView
         android:id="@+id/textView4"
@@ -177,18 +189,6 @@
         app:layout_constraintVertical_bias="0.391"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="37dp"
-        android:layout_height="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392"
-        app:srcCompat="@drawable/icons8_administrator_male_40px" />
-
     <Button
         android:id="@+id/btnMostVentas"
         android:layout_width="245dp"
@@ -200,5 +200,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.953" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

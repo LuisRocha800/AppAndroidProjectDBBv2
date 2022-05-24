@@ -80,21 +80,21 @@
 
     <TextView
         android:id="@+id/mostDireccionAdmin"
-        android:layout_width="189dp"
-        android:layout_height="19dp"
+        android:layout_width="282dp"
+        android:layout_height="17dp"
         android:text="DIRECCION"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.266" />
 
     <TextView
         android:id="@+id/mostTelefonoAdmin"
         android:layout_width="195dp"
         android:layout_height="18dp"
-        android:text="TELEFONO"
+        android:text="CUMPLEAÑOS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.597"
@@ -163,7 +163,7 @@
         app:layout_constraintVertical_bias="0.318" />
 
     <Button
-        android:id="@+id/btnInfoAdm"
+        android:id="@+id/btnInfoAdmin"
         android:layout_width="179dp"
         android:layout_height="45dp"
         app:cornerRadius="40dp"
@@ -190,15 +190,14 @@
         app:srcCompat="@drawable/icons8_administrator_male_40px" />
 
     <Button
-        android:id="@+id/btnMostAdm"
+        android:id="@+id/btnMostAdministracion"
         android:layout_width="245dp"
         android:layout_height="57dp"
-        android:text="BUTTON"
+        android:text="Button"
         app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.953" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

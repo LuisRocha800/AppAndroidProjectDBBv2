@@ -8,6 +8,7 @@ public class Constantes {
     public final static String URL_USUARIOEMPLEADO_ID_WEB_SERVICE =URL_WEB_SERVICE+"UsuarioEmpleado_Buscar_ID_GET.php";
     public final static String URL_USUARIOADMIN_ID_WEB_SERVICE =URL_WEB_SERVICE+"UsuarioAdmin_Buscar_ID_GET.php";
     // "URL_CLIENTE_X_ID" variable temporal solo para que no tire errores, no afecta funcionamiento
+    // Luego lo corrijo
     public final static String URL_CLIENTE_X_ID = "";
 
 

@@ -69,7 +69,7 @@ public class MenuCliente extends AppCompatActivity {
         mostRFCCliente.setText(datoRFC);
 
         mostrarDatos();
-        mostrarUltCompra();
+        //mostrarUltCompra();
 
         btnMostCompras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,23 +85,28 @@ public class MenuCliente extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JSONObject object = new JSONObject();
         String RFC = mostRFCCliente.getText().toString().trim();
-        String url = Constantes.URL_CLIENTE_X_ID+"?rfc="+RFC;
+        String url = Constantes.URL_PERSONA_ID_WEB_SERVICE+"?rfc="+RFC;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, object, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONObject datos = response.getJSONObject("data");
                     String nombre = datos.getString("nombre");
-                    String apellidop = datos.getString("apellidopaterno");
-                    String apellidom = datos.getString("apellidomaterno");
+                    String apellidop = datos.getString("apellido1");
+                    String apellidom = datos.getString("apellido2");
                     String telefono = datos.getString("telefono");
-                    String email = datos.getString("email");
-                    String direccion = datos.getString("direccion");
+                    String email = datos.getString("email_persona");
+                    String calle = datos.getString("calle");
+                    String numero_ext = datos.getString("numero_ext");
+                    String numero_int = datos.getString("numero_int");
+                    String localidad = datos.getString("localidad");
+                    String entidad_federativa = datos.getString("entidad_federativa");
+                    String cp = datos.getString("cp");
                     mostNombreCliente.setText(nombre);
                     mostApellidoCliente.setText(apellidop+" "+apellidom);
                     mostTelefonoCliente.setText(telefono);
                     mostEmailCliente.setText(email);
-                    mostDireccionCliente.setText(direccion);
+                    mostDireccionCliente.setText(calle+", "+localidad+", "+entidad_federativa+", "+cp);
                 }catch(JSONException e){
                     Toast.makeText(MenuCliente.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -120,7 +125,7 @@ public class MenuCliente extends AppCompatActivity {
 
     }
 
-    public void mostrarUltCompra(){
+ /*   public void mostrarUltCompra(){
         verUltimaCompra.setAdapter(adapter);
 
         String RFC = mostRFCCliente.getText().toString();
@@ -162,7 +167,7 @@ public class MenuCliente extends AppCompatActivity {
                         Toast.makeText(MenuCliente.this, "Error: "+anError.getErrorDetail(),Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
+    }**/
 
     public void totalCompras(){
         Intent intent  = new Intent(this,TotalComprasActivity.class);
