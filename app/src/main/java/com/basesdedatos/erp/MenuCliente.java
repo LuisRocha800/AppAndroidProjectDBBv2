@@ -41,6 +41,7 @@ public class MenuCliente extends AppCompatActivity {
 
     private Button btnMostCompras;
     private Button btnInfoCliente;
+    private Button btnMostrarOpcionesC;
 
     private ListView verUltimaCompra;
     private ArrayAdapter<String> adapter;
@@ -64,6 +65,7 @@ public class MenuCliente extends AppCompatActivity {
         btnMostCompras = findViewById(R.id.btnMostCompras);
         btnInfoCliente = findViewById(R.id.btnInfoCliente);
 
+        btnMostrarOpcionesC = findViewById(R.id.btnMostrarOpcionesC);
 
         String datoRFC = getIntent().getStringExtra("datoRFCCliente");
         mostRFCCliente.setText(datoRFC);
@@ -83,6 +85,13 @@ public class MenuCliente extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                irActualizarInformacionP();
+            }
+        });
+
+        btnMostrarOpcionesC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irPanelOpcionesC();
             }
         });
         }
@@ -184,6 +193,11 @@ public class MenuCliente extends AppCompatActivity {
     public void totalCompras(){
         Intent intent  = new Intent(this,TotalComprasActivity.class);
         intent.putExtra("RFCCliente",mostRFCCliente.getText().toString());
+        startActivity(intent);
+    }
+
+    private void irPanelOpcionesC(){
+        Intent intent = new Intent(this,OpcionesCliente.class);
         startActivity(intent);
     }
 }

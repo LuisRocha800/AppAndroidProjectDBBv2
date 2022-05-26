@@ -35,6 +35,10 @@
         <activity android:name=".ActualizarInformacionCliente"/>
         <activity android:name=".ActualizarInformacionEmpleado"/>
         <activity android:name=".ActualizarInformacionAdministrador"/>
+        <activity android:name=".ManufacturaAdquiridaActivity"/>
+        <activity android:name=".SolicitudMantenimiento"/>
+        <activity android:name=".HistorialMantenimientoActivity"/>
+        <activity android:name=".OpcionesCliente"/>
     </application>
 
 </manifest>

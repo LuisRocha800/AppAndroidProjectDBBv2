@@ -194,12 +194,27 @@
         android:layout_width="245dp"
         android:layout_height="57dp"
         android:text="Ver historial de compras"
+        android:textSize="10sp"
+        app:cornerRadius="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.847" />
+
+    <Button
+        android:id="@+id/btnMostrarOpcionesC"
+        android:layout_width="245dp"
+        android:layout_height="57dp"
+        android:text="Ver mas opciones"
+        android:textSize="10sp"
         app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintVertical_bias="0.97" />
 
     <ListView
 
