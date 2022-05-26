@@ -78,6 +78,13 @@ public class MenuCliente extends AppCompatActivity {
                 totalCompras();
             }
         });
+
+        btnInfoCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               irActualizarInformacionP();
+            }
+        });
         }
 
     public void mostrarDatos(){
@@ -169,6 +176,11 @@ public class MenuCliente extends AppCompatActivity {
                 });
     }**/
 
+    private void irActualizarInformacionP(){
+        Intent intent = new Intent(this,ActualizarInformacionCliente.class);
+        intent.putExtra("RFCClienteA",mostRFCCliente.getText().toString());
+        startActivity(intent);
+    }
     public void totalCompras(){
         Intent intent  = new Intent(this,TotalComprasActivity.class);
         intent.putExtra("RFCCliente",mostRFCCliente.getText().toString());

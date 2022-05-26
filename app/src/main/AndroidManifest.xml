@@ -32,6 +32,7 @@
         <activity android:name=".MenuEmpleado"/>
         <activity android:name=".TotalComprasActivity"/>
         <activity android:name=".ManufacturaEmpleado"/>
+        <activity android:name=".ActualizarInformacionCliente"/>
     </application>
 
 </manifest>
