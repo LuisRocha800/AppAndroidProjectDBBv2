@@ -43,6 +43,7 @@ public class LoginEmpleadoActivity extends AppCompatActivity {
         btnOkEmpleado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 verificarAccesoEmpleado();
             }
         });

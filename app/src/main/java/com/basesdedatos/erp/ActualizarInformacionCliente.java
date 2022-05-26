@@ -2,6 +2,7 @@ package com.basesdedatos.erp;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,9 +17,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActualizarInformacionCliente extends AppCompatActivity {
 
@@ -68,6 +76,14 @@ public class ActualizarInformacionCliente extends AppCompatActivity {
         txtRFCCliente.setText(datoRFCC);
 
         mostrarDatosAct();
+
+        btnActDatosC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actualizarInfoDireccionCliente();
+                actualizarInfoPersonaCliente();
+            }
+        });
     }
 
     private void mostrarDatosAct(){
@@ -137,5 +153,131 @@ public class ActualizarInformacionCliente extends AppCompatActivity {
         });
         requestQueue.add(jsonObjectRequest);
 
+    }
+
+    private void actualizarInfoPersonaCliente(){
+        if (validarCampos()) { //SE ACTUALIZA EL PRODUCTO
+
+            // TOMA LOS DATOS DE LOS EDIT TEXT
+            String nombre = txtNombreC.getText().toString();
+            String apellidoP = txtApellidoPC.getText().toString();
+            String apellidoM = txtApellidoMC.getText().toString();
+            String telefono = txtTelefonoC.getText().toString();
+            String email = txtemailC.getText().toString();
+            String rfc = txtRFCCliente.getText().toString();
+
+            // LOS PREPARA EN UN MAP
+            Map<String, String> datos = new HashMap<>();
+            datos.put("nombre", nombre);
+            datos.put("apellido1", apellidoP);
+            datos.put("apellido2", apellidoM);
+            datos.put("telefono", telefono);
+            datos.put("email_persona", email);
+            datos.put("rfc",rfc);
+
+            // METE O PREPARA LOS DATOS EN UN JSON
+            JSONObject jsonData = new JSONObject(datos);
+
+            // ESPECIFICAR LA URL PARA QUE SE CARGUE EN JSON EN EL .php
+            AndroidNetworking.post(Constantes.URL_ACTUALIZAR_PERSONA)
+                    .addJSONObjectBody(jsonData)
+                    .setPriority(Priority.MEDIUM)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                String estado = response.getString("estado");
+                                String error = response.getString("error");
+                                Toast.makeText(ActualizarInformacionCliente.this, estado, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(GuardarProductoActivity.this, "Error: "+error, Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                Toast.makeText(ActualizarInformacionCliente.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onError(ANError anError) {
+                            Toast.makeText(ActualizarInformacionCliente.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+        } else {
+            Toast.makeText(this, "Existen campos vacios, no se puede actualizar", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void actualizarInfoDireccionCliente(){
+        if (validarCampos()) { //SE ACTUALIZA EL PRODUCTO
+
+            // TOMA LOS DATOS DE LOS EDIT TEXT
+            String cp = txtCPC.getText().toString();
+            String entidad = txtEntidadC.getText().toString();
+            String localidad = txtLocalidadC.getText().toString();
+            String colonia = txtColoniaC.getText().toString();
+            String calle = txtCalleC.getText().toString();
+            String numeroExt = txtNumExtC.getText().toString();
+            String numeroInt = txtNumIntC.getText().toString();
+            String cedulaCatastral = txtCedCastralC.getText().toString();
+            String idDireccion = txtidDireccion.getText().toString();
+
+            // LOS PREPARA EN UN MAP
+            Map<String, String> datos = new HashMap<>();
+            datos.put("cp", cp);
+            datos.put("entidad_federativa", entidad);
+            datos.put("localidad", localidad);
+            datos.put("colonia", colonia);
+            datos.put("calle", calle);
+            datos.put("numero_ext",numeroExt);
+            datos.put("numero_int",numeroInt);
+            datos.put("cedula_catastral",cedulaCatastral);
+            datos.put("id_direccion",idDireccion);
+
+            // METE O PREPARA LOS DATOS EN UN JSON
+            JSONObject jsonData = new JSONObject(datos);
+
+            // ESPECIFICAR LA URL PARA QUE SE CARGUE EN JSON EN EL .php
+            AndroidNetworking.post(Constantes.URL_ACTUALIZAR_DIRECCION)
+                    .addJSONObjectBody(jsonData)
+                    .setPriority(Priority.MEDIUM)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                String estado = response.getString("estado");
+                                String error = response.getString("error");
+                                Toast.makeText(ActualizarInformacionCliente.this, estado, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(GuardarProductoActivity.this, "Error: "+error, Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                Toast.makeText(ActualizarInformacionCliente.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onError(ANError anError) {
+                            Toast.makeText(ActualizarInformacionCliente.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+        } else {
+            Toast.makeText(this, "Existen campos vacios, no se puede actualizar", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean validarCampos(){
+         return !txtNombreC.getText().toString().trim().isEmpty() &&
+                !txtApellidoPC.getText().toString().trim().isEmpty() &&
+                !txtApellidoMC.getText().toString().trim().isEmpty() &&
+                !txtTelefonoC.getText().toString().trim().isEmpty() &&
+                !txtemailC.getText().toString().trim().isEmpty() &&
+                 !txtCPC.getText().toString().trim().isEmpty() &&
+                 !txtEntidadC.getText().toString().trim().isEmpty() &&
+                 !txtLocalidadC.getText().toString().trim().isEmpty() &&
+                 !txtColoniaC.getText().toString().trim().isEmpty() &&
+                 !txtCalleC.getText().toString().trim().isEmpty() &&
+                 !txtNumExtC.getText().toString().trim().isEmpty() &&
+                 !txtNumIntC.getText().toString().trim().isEmpty() &&
+                 !txtCedCastralC.getText().toString().trim().isEmpty();
     }
 }

@@ -33,6 +33,8 @@
         <activity android:name=".TotalComprasActivity"/>
         <activity android:name=".ManufacturaEmpleado"/>
         <activity android:name=".ActualizarInformacionCliente"/>
+        <activity android:name=".ActualizarInformacionEmpleado"/>
+        <activity android:name=".ActualizarInformacionAdministrador"/>
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 package com.basesdedatos.erp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,10 +46,20 @@ public class MenuEmpleado extends AppCompatActivity {
         mostDireccionEmpleado = findViewById(R.id.mostDireccionEmpleado);
         mostTelefonoEmpleado = findViewById(R.id.mostTelefonoEmpleado);
 
+        btnInfoEmpleado = findViewById(R.id.btnInfoEmpleado);
+
         String datoRFC = getIntent().getStringExtra("datoRFCEmpleado");
         mostRFCEmpleado.setText(datoRFC);
 
         mostrarDatosEmpleado();
+
+        btnInfoEmpleado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                irActualizarInformacionE();
+            }
+        });
     }
 
     public void mostrarDatosEmpleado(){
@@ -91,5 +103,11 @@ public class MenuEmpleado extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+
+    private void irActualizarInformacionE(){
+        Intent intent = new Intent(this,ActualizarInformacionEmpleado.class);
+        intent.putExtra("RFCEmpleado",mostRFCEmpleado.getText().toString());
+        startActivity(intent);
     }
 }

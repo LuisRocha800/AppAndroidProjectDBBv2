@@ -1,6 +1,9 @@
 package com.basesdedatos.erp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +30,8 @@ public class MenuAdministrador extends AppCompatActivity {
     public TextView mostDireccionAdm;
     public TextView mostTelefonoAdm;
 
+    public Button btnInfoAdmin;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +45,19 @@ public class MenuAdministrador extends AppCompatActivity {
         mostDireccionAdm = findViewById(R.id.mostDireccionAdmin);
         mostTelefonoAdm = findViewById(R.id.mostTelefonoAdmin);
 
+        btnInfoAdmin = findViewById(R.id.btnInfoAdmin);
+
         String datoRFC = getIntent().getStringExtra("datoRFCAdm");
         mostRFCAdm.setText(datoRFC);
 
         mostrarDatosAdmin();
+
+        btnInfoAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irActualizarInformacionA();
+            }
+        });
     }
 
     public void mostrarDatosAdmin(){
@@ -87,5 +101,11 @@ public class MenuAdministrador extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+
+    private void irActualizarInformacionA(){
+        Intent intent = new Intent(this,ActualizarInformacionAdministrador.class);
+        intent.putExtra("RFCAdmin",mostRFCAdm.getText().toString());
+        startActivity(intent);
     }
 }
