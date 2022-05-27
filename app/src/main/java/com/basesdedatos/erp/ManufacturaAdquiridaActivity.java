@@ -5,17 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ManufacturaAdquiridaActivity extends AppCompatActivity {
 
+    private TextView RFCCliente;
+
     private EditText txtIdManufactura;
     private EditText txtDireccionMan;
     private EditText txtCostoMan;
     private EditText txtFecAdqMan;
-    private EditText txtFecTerMan;
 
     private Button btnBuscarManufactura;
     private Button btnSolMantenimiento;
@@ -30,7 +32,7 @@ public class ManufacturaAdquiridaActivity extends AppCompatActivity {
         txtDireccionMan = findViewById(R.id.txtDireccionMan);
         txtCostoMan = findViewById(R.id.txtCostoMan);
         txtFecAdqMan = findViewById(R.id.txtFecAdqMan);
-        txtFecTerMan = findViewById(R.id.txtFecTerMan);
+        RFCCliente = findViewById(R.id.rfcCliente);
 
         btnBuscarManufactura = findViewById(R.id.btnBuscarManufactura);
         btnSolMantenimiento = findViewById(R.id.btnSolMantenimiento);

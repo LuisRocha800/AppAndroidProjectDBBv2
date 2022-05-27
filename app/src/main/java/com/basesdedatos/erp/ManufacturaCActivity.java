@@ -104,5 +104,22 @@ public class ManufacturaCActivity extends AppCompatActivity {
             }
         });
 
+       generarFolios();
+    }
+
+    private void generarFolios(){
+        int numero1 = (int)(Math.random()*10000000+1);
+        int numero2 = (int)(Math.random()*10000000+1);
+        int numero3 = (int)(Math.random()*10000000+1);
+        int numero4 = (int)(Math.random()*10000000+1);
+        String numCadena1= Integer.toString(numero1);
+        String numCadena2= Integer.toString(numero2);
+        String numCadena3= Integer.toString(numero3);
+        String numCadena4= Integer.toString(numero4);
+        txtFolioManufacturaE.setText(numCadena1);
+        txtFolioDefectoE.setText(numCadena2);
+        txtFolioOutsorcingC.setText(numCadena3);
+        txtFolioMantenimientoE.setText(numCadena4);
+
     }
 }
