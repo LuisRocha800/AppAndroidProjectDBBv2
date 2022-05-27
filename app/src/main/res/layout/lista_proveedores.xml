@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center|center_horizontal|center_vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="299dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Muestra las ventas en un rango de fechas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="56dp" />
+
+    <EditText
+        android:id="@+id/txtFecUno"
+        android:layout_width="130dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Fecha Inicial (MDY)"
+        android:inputType="date"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
+
+    <EditText
+        android:id="@+id/txtFecDos"
+        android:layout_width="130dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Fecha Final (MDY)"
+        android:inputType="date"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="155dp" />
+
+    <Button
+        android:id="@+id/btnBuscarVentas"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="100dp"
+        android:text="Buscar"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        android:layout_marginLeft="295dp" />
+
+    <Button
+        android:id="@+id/btnLimpiar"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="50dp"
+        android:text="Limpiar"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        android:layout_marginLeft="295dp" />
+
+    <ListView
+        android:id="@+id/listVentas"
+        android:layout_width="378dp"
+        android:layout_height="437dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

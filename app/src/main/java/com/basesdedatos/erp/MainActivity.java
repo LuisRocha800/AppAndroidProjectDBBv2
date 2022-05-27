@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity{
     private Button btnAdministrador;
     private Button btnEmpleado;
     private Button btnCliente;
+    private Button btnIrPrueba;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity{
         btnAdministrador = findViewById(R.id.btnAdministrador);
         btnEmpleado = findViewById(R.id.btnEmpleado);
         btnCliente = findViewById(R.id.btnCliente);
+        btnIrPrueba = findViewById(R.id.btnIrPrueba);
 
         btnAdministrador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,13 @@ public class MainActivity extends AppCompatActivity{
                 irPantallaLoginCliente();
             }
         });
+
+        btnIrPrueba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               irPantallaPrueba();
+            }
+        });
     }
 
 
@@ -58,6 +67,11 @@ public class MainActivity extends AppCompatActivity{
 
     private void irPantallaLoginCliente(){
         Intent intent = new Intent(this,LoginClienteActivity.class);
+        startActivity(intent);
+    }
+
+    private void irPantallaPrueba(){
+        Intent intent = new Intent(this,Prueba.class);
         startActivity(intent);
     }
 }

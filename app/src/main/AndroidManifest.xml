@@ -39,6 +39,9 @@
         <activity android:name=".SolicitudMantenimiento"/>
         <activity android:name=".HistorialMantenimientoActivity"/>
         <activity android:name=".OpcionesCliente"/>
+        <activity android:name=".Prueba"/>
+        <activity android:name=".ListaVentas"/>
+
     </application>
 
 </manifest>
