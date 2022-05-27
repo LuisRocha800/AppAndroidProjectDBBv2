@@ -32,8 +32,8 @@
 
     <EditText
         android:id="@+id/txtFecIniHistorial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="136dp"
+        android:layout_height="35dp"
         android:ems="10"
         android:hint="(MM-DD-YYYY)"
         android:inputType="textPersonName"
@@ -50,8 +50,8 @@
 
     <EditText
         android:id="@+id/txtFecFinHistorial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="133dp"
+        android:layout_height="35dp"
         android:ems="10"
         android:hint="(MM-DD-YYYY)"
         android:inputType="textPersonName"

@@ -32,6 +32,8 @@ public class MenuEmpleado extends AppCompatActivity {
 
     private Button btnMostVentas;
     private Button btnInfoEmpleado;
+    private Button btnMostrarOpcionesE;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class MenuEmpleado extends AppCompatActivity {
         mostTelefonoEmpleado = findViewById(R.id.mostTelefonoEmpleado);
 
         btnInfoEmpleado = findViewById(R.id.btnInfoEmpleado);
+        btnMostrarOpcionesE = findViewById(R.id.btnMostrarOpcionesE);
 
         String datoRFC = getIntent().getStringExtra("datoRFCEmpleado");
         mostRFCEmpleado.setText(datoRFC);
@@ -58,6 +61,13 @@ public class MenuEmpleado extends AppCompatActivity {
             public void onClick(View v) {
 
                 irActualizarInformacionE();
+            }
+        });
+
+        btnMostrarOpcionesE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irOpcionesEmpleado();
             }
         });
     }
@@ -108,6 +118,11 @@ public class MenuEmpleado extends AppCompatActivity {
     private void irActualizarInformacionE(){
         Intent intent = new Intent(this,ActualizarInformacionEmpleado.class);
         intent.putExtra("RFCEmpleado",mostRFCEmpleado.getText().toString());
+        startActivity(intent);
+    }
+
+    private void irOpcionesEmpleado(){
+        Intent intent = new Intent(this,OpcionesEmpleado.class);
         startActivity(intent);
     }
 }

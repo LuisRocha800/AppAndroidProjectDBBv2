@@ -128,5 +128,6 @@
         android:text="PROVEEDORES"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="14dp" />
+        tools:layout_editor_absoluteY="14dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

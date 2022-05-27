@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnIrManAdq"
+        android:id="@+id/btnIrManufactura"
         android:layout_width="174dp"
         android:layout_height="52dp"
-        android:text="Manufactura"
+        android:text="MANUFACTURA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
