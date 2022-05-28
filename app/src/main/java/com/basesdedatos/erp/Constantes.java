@@ -24,7 +24,7 @@ public class Constantes {
     public final static String URL_INSERTAR_AUTOBUS = URL_WEB_SERVICE+"Insertar_Autobus_POST.php";
     public final static String URL_ACTUALIZAR_AUTOBUS = URL_WEB_SERVICE+"Actualizar_Autobus_POST.php";
     public final static String URL_ELIMINAR_AUTOBUS = URL_WEB_SERVICE+"Delete_Autobus_POST.php";
-    public final static String URL_BUSCAR_PLACAS = URL_WEB_SERVICE+"Consulta_Autobus_GET.php";
+    public final static String URL_BUSCAR_PLACAS = URL_WEB_SERVICE+"Consulta_Autobus_ID_GET.php";
 
     public final static String URL_MANUFACTURA_ID = URL_WEB_SERVICE+"Manufactura_Buscar_ID_GET.php";
     public final static String URL_HISTORIAL_DEFECTOS = URL_WEB_SERVICE+"Historial_Defectos_Get.php";
