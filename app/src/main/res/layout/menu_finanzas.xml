@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.836" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/lista_activos_pasivos"
         android:layout_width="370dp"
         android:layout_height="433dp"

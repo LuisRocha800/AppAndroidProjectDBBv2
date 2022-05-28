@@ -31,6 +31,7 @@
         <activity android:name=".MenuAdministrador"/>
         <activity android:name=".MenuCliente"/>
         <activity android:name=".MenuEmpleado"/>
+        <activity android:name=".MenuFinanzas"/>
         <activity android:name=".TotalComprasActivity"/>
         <activity android:name=".ManufacturaEmpleado"/>
         <activity android:name=".ActualizarInformacionCliente"/>
