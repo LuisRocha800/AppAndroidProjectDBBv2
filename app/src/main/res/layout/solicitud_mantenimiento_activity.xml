@@ -102,7 +102,7 @@
         app:layout_constraintVertical_bias="0.552" />
 
     <EditText
-        android:id="@+id/txtTipoDefecto2"
+        android:id="@+id/txtFolioDefecto"
         android:layout_width="339dp"
         android:layout_height="65dp"
         android:ems="10"
@@ -130,7 +130,7 @@
         app:layout_constraintVertical_bias="0.804" />
 
     <TextView
-        android:id="@+id/textView59"
+        android:id="@+id/idManufactura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

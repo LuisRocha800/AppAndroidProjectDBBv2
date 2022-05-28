@@ -51,7 +51,7 @@ public class MenuEmpleado extends AppCompatActivity {
         btnInfoEmpleado = findViewById(R.id.btnInfoEmpleado);
         btnMostrarOpcionesE = findViewById(R.id.btnMostrarOpcionesE);
 
-        String datoRFC = getIntent().getStringExtra("datoRFCEmpleado");
+        String datoRFC = getIntent().getStringExtra("datoUsuarioG");
         mostRFCEmpleado.setText(datoRFC);
 
         mostrarDatosEmpleado();

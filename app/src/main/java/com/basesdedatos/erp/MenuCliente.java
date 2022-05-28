@@ -67,7 +67,7 @@ public class MenuCliente extends AppCompatActivity {
 
         btnMostrarOpcionesC = findViewById(R.id.btnMostrarOpcionesC);
 
-        String datoRFC = getIntent().getStringExtra("datoRFCCliente");
+        String datoRFC = getIntent().getStringExtra("datoUsuarioG");
         mostRFCCliente.setText(datoRFC);
 
         mostrarDatos();

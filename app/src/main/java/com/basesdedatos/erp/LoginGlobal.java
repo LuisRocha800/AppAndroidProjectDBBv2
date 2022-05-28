@@ -48,7 +48,8 @@ public class LoginGlobal extends AppCompatActivity {
         btnOkGlobal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              verificarLogin();
+
+                verificarLogin();
             }
         });
     }
@@ -71,7 +72,7 @@ public class LoginGlobal extends AppCompatActivity {
 
                     viewUser.setText(rfc);
                     viewPass.setText(password);
-                    viewPass.setText(cargo);
+                    viewCargo.setText(cargo);
 
                 }catch(JSONException e){
 
@@ -119,16 +120,19 @@ public class LoginGlobal extends AppCompatActivity {
 
     private void irPantallaAdministrador(){
         Intent intent = new Intent(this,MenuAdministrador.class);
+        intent.putExtra("datoUsuarioG",txtUsuarioGlobal.getText().toString());
         startActivity(intent);
     }
 
     private void irPantallaEmpleado(){
         Intent intent = new Intent(this,MenuEmpleado.class);
+        intent.putExtra("datoUsuarioG",txtUsuarioGlobal.getText().toString());
         startActivity(intent);
     }
 
     private void irPantallaCliente(){
         Intent intent = new Intent(this,MenuCliente.class);
+        intent.putExtra("datoUsuarioG",txtUsuarioGlobal.getText().toString());
         startActivity(intent);
     }
 

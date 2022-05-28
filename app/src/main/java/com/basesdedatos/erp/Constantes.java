@@ -21,9 +21,15 @@ public class Constantes {
     public final static String URL_ELIMINAR_RUTA = URL_WEB_SERVICE+"Delete_Ruta_POST.php";
     public final static String URL_BUSCAR_RUTA_ID = URL_WEB_SERVICE+"Consulta_Ruta_ID_GET.php";
 
-    public final static String URL_CONSULTA_FECHAS = URL_WEB_SERVICE+"Consulta_Ventas_Fecha_POST.php";
 
+    public final static String URL_MANUFACTURA_ID = URL_WEB_SERVICE+"Manufactura_Buscar_ID_GET.php";
+    public final static String URL_HISTORIAL_DEFECTOS = URL_WEB_SERVICE+"Historial_Defectos_Get.php";
+    public final static String URL_HISTORIAL_DEFECTOS2 = URL_WEB_SERVICE+"Historial-Defectos2_POST.php";
+    public final static String URL_INSERTAR_DEFECTO = URL_WEB_SERVICE+"Insertar_Defecto_POST.php";
+
+    public final static String URL_CONSULTA_FECHAS = URL_WEB_SERVICE+"Consulta_Ventas_Fecha_POST.php";
     public final static String URL_CONSULTA_VENTA = URL_WEB_SERVICE+"Consultar_ventas_POST.php";
+
 
     // "URL_CLIENTE_X_ID" variable temporal solo para que no tire errores, no afecta funcionamiento
     // Luego lo corrijo

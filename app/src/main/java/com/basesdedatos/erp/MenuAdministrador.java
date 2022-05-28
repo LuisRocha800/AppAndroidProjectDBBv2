@@ -47,7 +47,7 @@ public class MenuAdministrador extends AppCompatActivity {
 
         btnInfoAdmin = findViewById(R.id.btnInfoAdmin);
 
-        String datoRFC = getIntent().getStringExtra("datoRFCAdm");
+        String datoRFC = getIntent().getStringExtra("datoUsuarioG");
         mostRFCAdm.setText(datoRFC);
 
         mostrarDatosAdmin();

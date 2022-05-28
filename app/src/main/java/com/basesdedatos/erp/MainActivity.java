@@ -20,33 +20,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btnAdministrador = findViewById(R.id.btnAdministrador);
-        btnEmpleado = findViewById(R.id.btnEmpleado);
-        btnCliente = findViewById(R.id.btnCliente);
         btnIniciarSesionGlobal = findViewById(R.id.btnIniciarSesionGlobal);
-        btn_ventas = findViewById(R.id.btn_ventas);
-
-        btnAdministrador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              irPantallaLoginAdministrador();
-            }
-        });
-
-        btnEmpleado.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               irPantallaLoginEmpleado();
-            }
-        });
-
-        btnCliente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irPantallaLoginCliente();
-            }
-        });
 
         btnIniciarSesionGlobal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,36 +29,11 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        btn_ventas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                irVentas();
-            }
-        });
-    }
-
-    private void irPantallaLoginAdministrador(){
-        Intent intent = new Intent(this,LoginAdministradorActivity.class);
-        startActivity(intent);
-    }
-
-    private void irPantallaLoginEmpleado(){
-        Intent intent = new Intent(this,LoginEmpleadoActivity.class);
-        startActivity(intent);
-    }
-
-    private void irPantallaLoginCliente(){
-        Intent intent = new Intent(this,LoginClienteActivity.class);
-        startActivity(intent);
     }
 
     private void irPantallaLoginGlobal(){
-        Intent intent = new Intent(this,LoginClienteActivity.class);
+        Intent intent = new Intent(this,LoginGlobal.class);
         startActivity(intent);
     }
 
-    private void irVentas(){
-        Intent intent = new Intent(this, VentasActivity.class);
-        startActivity(intent);
-    }
 }

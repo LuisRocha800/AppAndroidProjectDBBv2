@@ -27,6 +27,7 @@
         <activity android:name=".LoginAdministradorActivity"/>
         <activity android:name=".LoginEmpleadoActivity"/>
         <activity android:name=".LoginClienteActivity"/>
+        <activity android:name=".LoginGlobal"/>
         <activity android:name=".MenuAdministrador"/>
         <activity android:name=".MenuCliente"/>
         <activity android:name=".MenuEmpleado"/>
