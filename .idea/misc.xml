@@ -4,16 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/ERP/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/actualizar_informacion_administrador.xml" value="0.33" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/actualizar_informacion_cliente.xml" value="0.33" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/actualizar_informacion_empleado.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/dos_activity.xml" value="0.2" />
-        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/historial_mantenimiento_activity.xml" value="0.33" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/historial_mantenimiento_activity.xml" value="0.22" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/lista_proveedores.xml" value="0.33" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/login_administrador_activity.xml" value="0.2" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/login_cliente_activity.xml" value="0.22" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/login_empleado_activity.xml" value="0.15625" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/loginglobal.xml" value="0.25" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/manufactura_adquirida.xml" value="0.33" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/manufactura_c_activity.xml" value="0.33" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/manufactura_empleado_activity.xml" value="0.14" />
@@ -24,6 +25,7 @@
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/opciones_empleado_activity.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/prueba.xml" value="0.25" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/solicitud_mantenimiento_activity.xml" value="0.25" />
+        <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/solicitudes_mantenimiento_activity.xml" value="0.22" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/total_compras_activity.xml" value="0.33" />
         <entry key="..\:/Users/Luis Angel Rocha/Desktop/SW/AppAndroidProjectDBB/app/src/main/res/layout/tres_activity.xml" value="0.2" />
         <entry key="..\:/Users/eulis/AndroidStudioProjects/AppAndroidProjectDBB/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.219" />

@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity{
     private Button btnAdministrador;
     private Button btnEmpleado;
     private Button btnCliente;
+    private Button btnIniciarSesionGlobal;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity{
         btnAdministrador = findViewById(R.id.btnAdministrador);
         btnEmpleado = findViewById(R.id.btnEmpleado);
         btnCliente = findViewById(R.id.btnCliente);
+        btnIniciarSesionGlobal = findViewById(R.id.btnIniciarSesionGlobal);
 
         btnAdministrador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,8 +46,13 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        btnIniciarSesionGlobal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irPantallaLoginGlobal();
+            }
+        });
     }
-
 
     private void irPantallaLoginAdministrador(){
         Intent intent = new Intent(this,LoginAdministradorActivity.class);
@@ -58,6 +65,11 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void irPantallaLoginCliente(){
+        Intent intent = new Intent(this,LoginClienteActivity.class);
+        startActivity(intent);
+    }
+
+    private void irPantallaLoginGlobal(){
         Intent intent = new Intent(this,LoginClienteActivity.class);
         startActivity(intent);
     }

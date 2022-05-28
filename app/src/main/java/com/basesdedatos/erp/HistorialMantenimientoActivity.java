@@ -28,13 +28,9 @@ public class HistorialMantenimientoActivity extends AppCompatActivity {
         setContentView(R.layout.historial_mantenimiento_activity);
 
         txtIdManufacturaHistorial = findViewById(R.id.txtIdManufacturaHistorial);
-        txtFecIniHistorial = findViewById(R.id.txtFecIniHistorial);
-        txtFecFinHistorial = findViewById(R.id.txtFecFinHistorial);
 
         listaDeMantenimiento = findViewById(R.id.listaDeMantenimiento);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-
-        btnFiltrarFecHistorial = findViewById(R.id.btnFiltrarFecHistorial);
 
         btnFiltrarFecHistorial.setOnClickListener(new View.OnClickListener() {
             @Override

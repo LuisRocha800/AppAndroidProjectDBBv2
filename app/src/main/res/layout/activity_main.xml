@@ -48,6 +48,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.472" />
 
+    <Button
+        android:id="@+id/btnIniciarSesionGlobal"
+        android:layout_width="272dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#8b0c3c"
+        android:text="INICIAR SESION"
+        app:cornerRadius="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.63" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="63dp"
@@ -82,6 +96,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.462"
+        app:srcCompat="@drawable/icons8_administrator_male_40px" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="63dp"
+        android:layout_height="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622"
         app:srcCompat="@drawable/icons8_administrator_male_40px" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
