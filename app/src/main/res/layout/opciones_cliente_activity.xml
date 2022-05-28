@@ -17,4 +17,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.063" />
+
+    <Button
+        android:id="@+id/btn_finanzas_cliente"
+        android:layout_width="174dp"
+        android:layout_height="52dp"
+        android:text="FINANZAS"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206" />
+
+    <Button
+        android:id="@+id/btn_ventas_cliente"
+        android:layout_width="174dp"
+        android:layout_height="52dp"
+        android:text="VENTAS"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="195dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

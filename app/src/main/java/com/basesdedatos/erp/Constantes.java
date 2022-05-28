@@ -23,6 +23,8 @@ public class Constantes {
 
     public final static String URL_CONSULTA_FECHAS = URL_WEB_SERVICE+"Consulta_Ventas_Fecha_POST.php";
 
+    public final static String URL_CONSULTA_VENTA = URL_WEB_SERVICE+"Consultar_ventas_POST.php";
+
     // "URL_CLIENTE_X_ID" variable temporal solo para que no tire errores, no afecta funcionamiento
     // Luego lo corrijo
     public final static String URL_CLIENTE_X_ID = "";

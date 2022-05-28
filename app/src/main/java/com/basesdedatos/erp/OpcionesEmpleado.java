@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class OpcionesEmpleado extends AppCompatActivity {
 
     private Button btnIrManufactura;
+    private Button btn_finanzas;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class OpcionesEmpleado extends AppCompatActivity {
         setContentView(R.layout.opciones_empleado_activity);
 
         btnIrManufactura = findViewById(R.id.btnIrManufactura);
+        btn_finanzas = findViewById(R.id.btn_finanzas_empleado);
 
         btnIrManufactura.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,10 +27,22 @@ public class OpcionesEmpleado extends AppCompatActivity {
               irPantallaManufacturaCActivity();
             }
         });
+
+        btn_finanzas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irPantallaMenuFinanzas();
+            }
+        });
     }
 
     private void irPantallaManufacturaCActivity(){
         Intent intent = new Intent(this,ManufacturaCActivity.class);
+        startActivity(intent);
+    }
+
+    private void irPantallaMenuFinanzas(){
+        Intent intent = new Intent(this, MenuFinanzas.class);
         startActivity(intent);
     }
 }
