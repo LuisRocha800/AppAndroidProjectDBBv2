@@ -28,64 +28,63 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Rutas extends AppCompatActivity {
+public class Autobuses extends AppCompatActivity {
 
-    private EditText txtIdRuta;
-    private EditText txtDescripcionRuta;
-    private EditText txtDuracionAprox;
-    private EditText txtNombreRuta;
+    private EditText txtPlacas;
+    private EditText txtNumero_Asientos;
+    private EditText txtStatusAutobus;
 
     private TextView textView36;
 
-    private Button btnInsertarRuta;
-    private Button btnActRuta;
-    private Button btnBuscarIdRuta;
-    private Button btnEliminarRuta;
-    private Button listarRutas;
+    private Button btnInsertarAutobus;
+    private Button btnActAutobus;
+    private Button btnBuscarPlacas;
+    private Button btnEliminarAutobus;
+
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rutas);
+        setContentView(R.layout.autobuses);
         AndroidNetworking.initialize(getApplicationContext());
 
-        txtIdRuta = findViewById(R.id.txtIdRuta);
-        txtDescripcionRuta = findViewById(R.id.txtDescripcionRuta);
-        txtDuracionAprox = findViewById(R.id.txtDuracionAprox);
-        txtNombreRuta = findViewById(R.id.txtNombreRuta);
+        txtPlacas = findViewById(R.id.txtPlacas);
+        txtNumero_Asientos = findViewById(R.id.txtNumero_Asientos);
+        txtStatusAutobus = findViewById(R.id.txtStatusAutobus);
 
-        btnInsertarRuta = findViewById(R.id.btnInsertarRuta);
-        btnActRuta = findViewById(R.id.btnActRuta);
-        btnBuscarIdRuta = findViewById(R.id.btnBuscarIdRuta);
-        btnEliminarRuta = findViewById(R.id.btnEliminarRuta);
-        //listarRutas = findViewById(R.id.listarRutas);
 
-        btnInsertarRuta.setOnClickListener(new View.OnClickListener() {
+        btnInsertarAutobus = findViewById(R.id.btnInsertarAutobus);
+        btnActAutobus = findViewById(R.id.btnActAutobus);
+        btnBuscarPlacas = findViewById(R.id.btnBuscarPlacas);
+        btnEliminarAutobus = findViewById(R.id.btnEliminarAutobus);
+
+
+        btnInsertarAutobus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertarRuta();
+                insertarAutobus();
             }
         });
 
-        btnActRuta.setOnClickListener(new View.OnClickListener() {
+        btnActAutobus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualizarRuta();
+                actualizarAutobus();
             }
         });
 
-        btnBuscarIdRuta.setOnClickListener(new View.OnClickListener() {
+        btnBuscarPlacas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buscarRutaId();
+                buscarPlacas();
             }
         });
 
-        btnEliminarRuta.setOnClickListener(new View.OnClickListener() {
+        btnEliminarAutobus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                eliminarRuta();
+                eliminarAutobus();
             }
         });
 
@@ -97,23 +96,21 @@ public class Rutas extends AppCompatActivity {
         });*/
     }
 
-    private void insertarRuta() {
+    private void insertarAutobus() {
          if(validarCampos()) {
              //OBTENER DATOS DE LOS COMPONENTES DE LA VISTA
-             String idRuta = txtIdRuta.getText().toString();
-             String nombreRuta = txtNombreRuta.getText().toString();
-             String duracion = txtDuracionAprox.getText().toString();
-             String descripcion = txtDescripcionRuta.getText().toString();
+             String placas = txtPlacas.getText().toString();
+             String status = txtStatusAutobus.getText().toString();
+             String asientos = txtNumero_Asientos.getText().toString();
 
 
              Map<String, String> datos = new HashMap<>();
-             datos.put("id_ruta", idRuta);
-             datos.put("nombre", nombreRuta);
-             datos.put("duracion_aprox", duracion);
-             datos.put("descripcion_ruta", descripcion);
+             datos.put("placas", placas);
+             datos.put("status", status);
+             datos.put("numero_asientos", asientos);
              JSONObject jsonData = new JSONObject(datos);
 
-             AndroidNetworking.post(Constantes.URL_INSERTAR_RUTA)
+             AndroidNetworking.post(Constantes.URL_INSERTAR_AUTOBUS)
 
                      .addJSONObjectBody(jsonData)
                      .setPriority(Priority.MEDIUM)
@@ -124,17 +121,17 @@ public class Rutas extends AppCompatActivity {
                              try {
                                  String estado = response.getString("estado");
                                  String error = response.getString("error");
-                                 Toast.makeText(Rutas.this, estado, Toast.LENGTH_SHORT).show();
+                                 Toast.makeText(Autobuses.this, estado, Toast.LENGTH_SHORT).show();
 
 
                              } catch (JSONException e) {
-                                 Toast.makeText(Rutas.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                 Toast.makeText(Autobuses.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                              }
                          }
 
                          @Override
                          public void onError(ANError anError) {
-                             Toast.makeText(Rutas.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                             Toast.makeText(Autobuses.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
                          }
                      });
          }else{
@@ -142,27 +139,25 @@ public class Rutas extends AppCompatActivity {
          }
     }
 
-    private void actualizarRuta(){
+    private void actualizarAutobus(){
         if(validarCampos()) {
             // TOMA LOS DATOS DE LOS EDIT TEXT
-            String id = txtIdRuta.getText().toString();
-            String nombre = txtNombreRuta.getText().toString();
-            String duracion = txtDuracionAprox.getText().toString();
-            String descripcion = txtDescripcionRuta.getText().toString();
+            String placas = txtPlacas.getText().toString();
+            String status = txtStatusAutobus.getText().toString();
+            String asientos = txtNumero_Asientos.getText().toString();
 
 
             // LOS PREPARA EN UN MAP
             Map<String, String> datos = new HashMap<>();
-            datos.put("id_ruta", id);
-            datos.put("nombre", nombre);
-            datos.put("descripcion", descripcion);
-            datos.put("duracion_aprox", duracion);
+            datos.put("id_ruta", placas);
+            datos.put("descripcion", asientos);
+            datos.put("duracion_aprox", status);
 
             // METE O PREPARA LOS DATOS EN UN JSON
             JSONObject jsonData = new JSONObject(datos);
 
             // ESPECIFICAR LA URL PARA QUE SE CARGUE EN JSON EN EL .php
-            AndroidNetworking.post(Constantes.URL_ACTUALIZAR_RUTA)
+            AndroidNetworking.post(Constantes.URL_ACTUALIZAR_AUTOBUS)
                     .addJSONObjectBody(jsonData)
                     .setPriority(Priority.MEDIUM)
                     .build()
@@ -172,16 +167,16 @@ public class Rutas extends AppCompatActivity {
                             try {
                                 String estado = response.getString("estado");
                                 String error = response.getString("error");
-                                Toast.makeText(Rutas.this, estado, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Autobuses.this, estado, Toast.LENGTH_SHORT).show();
                                 //Toast.makeText(GuardarProductoActivity.this, "Error: "+error, Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
-                                Toast.makeText(Rutas.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Autobuses.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onError(ANError anError) {
-                            Toast.makeText(Rutas.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Autobuses.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
 
                         }
                     });
@@ -190,12 +185,12 @@ public class Rutas extends AppCompatActivity {
         }
     }
 
-    private void eliminarRuta(){
-           String id = txtIdRuta.getText().toString();
+    private void eliminarAutobus(){
+           String id = txtPlacas.getText().toString();
            Map<String, String> datos = new HashMap<>();
-           datos.put("id_ruta", id);
+           datos.put("placas", id);
 
-           AndroidNetworking.post(Constantes.URL_ELIMINAR_RUTA)
+           AndroidNetworking.post(Constantes.URL_ELIMINAR_AUTOBUS)
                    .addJSONObjectBody(new JSONObject(datos))
                    .setPriority(Priority.MEDIUM)
                    .build()
@@ -206,51 +201,51 @@ public class Rutas extends AppCompatActivity {
                            try {
                                String estado = response.getString("estado");
                                String error = response.getString("error");
-                               Toast.makeText(Rutas.this, estado, Toast.LENGTH_SHORT).show();
+                               Toast.makeText(Autobuses.this, estado, Toast.LENGTH_SHORT).show();
                                //Toast.makeText(GuardarProductoActivity.this, "Error: "+error, Toast.LENGTH_SHORT).show();
                            } catch (JSONException e) {
-                               Toast.makeText(Rutas.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                               Toast.makeText(Autobuses.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                            }
 
                        }
 
                        @Override
                        public void onError(ANError anError) {
-                           Toast.makeText(Rutas.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
+                           Toast.makeText(Autobuses.this, "Error: " + anError.getErrorDetail(), Toast.LENGTH_SHORT).show();
                        }
                    });
 
     }
 
-    private void buscarRutaId(){
+    private void buscarPlacas(){
 
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             JSONObject object = new JSONObject();
-            String id = txtIdRuta.getText().toString().trim();
-            String url = Constantes.URL_BUSCAR_RUTA_ID + "?id_ruta=" + id;
+            String id = txtPlacas.getText().toString().trim();
+            String url = Constantes.URL_BUSCAR_PLACAS + "?placas=" + id;
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, object, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
                         JSONObject datos = response.getJSONObject("data");
-                        String nombre = datos.getString("nombre");
-                        String descripcion = datos.getString("descripcion");
-                        String duracion = datos.getString("duracion_aprox");
-                        txtNombreRuta.setText(nombre);
-                        txtDuracionAprox.setText(descripcion);
-                        txtDescripcionRuta.setText(duracion);
+
+                        String asientos = datos.getString("numero_asientos");
+                        String status = datos.getString("status");
+
+                        txtStatusAutobus.setText(asientos);
+                        txtNumero_Asientos.setText(status);
 
                     } catch (JSONException e) {
-                        Toast.makeText(Rutas.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Autobuses.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    txtNombreRuta.setText(error.toString());
-                    txtDuracionAprox.setText(error.toString());
-                    txtDescripcionRuta.setText(error.toString());
+
+                    txtStatusAutobus.setText(error.toString());
+                    txtNumero_Asientos.setText(error.toString());
                 }
             });
             requestQueue.add(jsonObjectRequest);
@@ -258,10 +253,9 @@ public class Rutas extends AppCompatActivity {
     }
 
     private boolean validarCampos(){
-        return !txtIdRuta.getText().toString().trim().isEmpty() &&
-                !txtNombreRuta.getText().toString().trim().isEmpty() &&
-                !txtDuracionAprox.getText().toString().isEmpty() &&
-                !txtDescripcionRuta.getText().toString().isEmpty();
+        return !txtPlacas.getText().toString().trim().isEmpty() &&
+                !txtStatusAutobus.getText().toString().isEmpty() &&
+                !txtNumero_Asientos.getText().toString().isEmpty();
     }
 
     private void irVentanVentasFecha(){
