@@ -16,6 +16,11 @@ public class Constantes {
     public final static String URL_ELIMINAR_PROVEEDOR = URL_WEB_SERVICE+"Delete_Proveedor_POST.php";
     public final static String URL_BUSCAR_PROVEEDOR_ID = URL_WEB_SERVICE+"Consulta_Proveedor_ID_GET.php";
 
+    public final static String URL_INSERTAR_RUTA = URL_WEB_SERVICE+"Insertar_Ruta_POST.php";
+    public final static String URL_ACTUALIZAR_RUTA = URL_WEB_SERVICE+"Actualizar_Ruta_POST.php";
+    public final static String URL_ELIMINAR_RUTA = URL_WEB_SERVICE+"Delete_Ruta_POST.php";
+    public final static String URL_BUSCAR_RUTA_ID = URL_WEB_SERVICE+"Consultar_rutas.php";
+
     public final static String URL_CONSULTA_FECHAS = URL_WEB_SERVICE+"Consulta_Ventas_Fecha_POST.php";
 
     // "URL_CLIENTE_X_ID" variable temporal solo para que no tire errores, no afecta funcionamiento
